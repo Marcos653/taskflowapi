@@ -1,0 +1,32 @@
+version: '1'
+services:
+  mysql-db:
+    image: mysql:8.0.36
+    environment:
+      MYSQL_DATABASE: 'taskflow'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - "3306:3306"
+    networks:
+      - taskflow-network
+
+  taskflow-service:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-db
+    networks:
+      - taskflow-network
+    command: ["./bash/wait-for-it.sh", "mysql-db", "3306", "MYSQL"]
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/taskflow?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+
+networks:
+  taskflow-network:
+    driver: bridge

@@ -3,20 +3,16 @@ spring:
     name: TASKFLOW-SERVICE
 
   datasource:
-    url: jdbc:mysql://mysql-db:3306/taskflow?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    username: root
+    url: jdbc:postgresql://postgre-db:5432/taskflow
+    username: user
     password: password
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.postgresql.Driver
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
 
 server:
   port: 8080
-
-springdoc:
-  swagger-ui:
-    enabled: true

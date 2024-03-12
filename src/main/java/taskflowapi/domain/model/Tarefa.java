@@ -1,8 +1,8 @@
 package taskflowapi.domain.model;
 
+import taskflowapi.domain.enums.EDepartamento;
 import jakarta.persistence.*;
 import lombok.*;
-import taskflowapi.domain.enums.EDepartamento;
 
 import java.time.LocalDateTime;
 
@@ -37,7 +37,7 @@ public class Tarefa {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pessoa_alocada")
-    private Pessoa pessoaAlocada;
+    private Pessoa pessoa;
 
     private Boolean finalizado = false;
 }

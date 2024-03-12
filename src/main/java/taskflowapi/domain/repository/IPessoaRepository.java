@@ -6,5 +6,5 @@ public interface IPessoaRepository {
 
     Pessoa save(Pessoa pessoa);
 
-    void delete(Long id);
+    void deleteById(Long id);
 }

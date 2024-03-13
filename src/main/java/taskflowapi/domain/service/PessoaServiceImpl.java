@@ -1,21 +1,21 @@
 package taskflowapi.domain.service;
 
-import jakarta.persistence.EntityNotFoundException;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import taskflowapi.application.dto.filters.PessoaFiltros;
-import taskflowapi.application.dto.request.PessoaRequest;
-import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
-import taskflowapi.application.dto.response.PessoaResponse;
-import taskflowapi.application.dto.response.PessoaTotalHorasTrabalhadas;
-import taskflowapi.application.mapper.PessoaMapper;
 import taskflowapi.domain.model.Pessoa;
 import taskflowapi.domain.model.Tarefa;
+import taskflowapi.application.mapper.PessoaMapper;
 import taskflowapi.domain.repository.IPessoaRepository;
+import taskflowapi.application.dto.filters.PessoaFiltros;
+import taskflowapi.application.dto.request.PessoaRequest;
 import taskflowapi.domain.service.contract.IPessoaService;
+import taskflowapi.application.dto.response.PessoaResponse;
+import taskflowapi.application.dto.response.PessoaTotalHorasTrabalhadas;
+import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
+import java.util.List;
+import jakarta.persistence.EntityNotFoundException;
 
 import static java.util.Comparator.comparing;
 import static taskflowapi.domain.utils.MensagemConstantes.PESSOA_ID_NOT_FOUND;

@@ -1,22 +1,22 @@
 package taskflowapi.application.controller.contract;
 
+import taskflowapi.application.dto.filters.PessoaFiltros;
+import taskflowapi.application.dto.request.PessoaRequest;
+import taskflowapi.application.dto.response.PessoaResponse;
+import taskflowapi.application.annotations.PessoaFiltrosParameters;
+import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
+import taskflowapi.application.dto.response.PessoaTotalHorasTrabalhadas;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import taskflowapi.application.annotations.PessoaFiltrosParameters;
-import taskflowapi.application.dto.filters.PessoaFiltros;
-import taskflowapi.application.dto.request.PessoaRequest;
-import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
-import taskflowapi.application.dto.response.PessoaResponse;
-import taskflowapi.application.dto.response.PessoaTotalHorasTrabalhadas;
 
-import java.util.List;
 import java.util.Set;
+import java.util.List;
+import jakarta.validation.Valid;
 
 public interface IPessoaController {
 

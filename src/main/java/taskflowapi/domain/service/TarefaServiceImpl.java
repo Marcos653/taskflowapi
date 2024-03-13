@@ -1,18 +1,18 @@
 package taskflowapi.domain.service;
 
-import jakarta.persistence.EntityNotFoundException;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import taskflowapi.application.dto.request.TarefaRequest;
-import taskflowapi.application.dto.response.TarefaResponse;
-import taskflowapi.application.mapper.TarefaMapper;
-import taskflowapi.domain.enums.EDepartamento;
 import taskflowapi.domain.model.Tarefa;
+import taskflowapi.domain.enums.EDepartamento;
+import taskflowapi.application.mapper.TarefaMapper;
 import taskflowapi.domain.repository.ITarefaRepository;
+import taskflowapi.application.dto.request.TarefaRequest;
 import taskflowapi.domain.service.contract.IPessoaService;
 import taskflowapi.domain.service.contract.ITarefaService;
+import taskflowapi.application.dto.response.TarefaResponse;
+import org.springframework.stereotype.Service;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import jakarta.persistence.EntityNotFoundException;
 
 import static taskflowapi.domain.utils.MensagemConstantes.TAREFA_ID_NOT_FOUND;
 

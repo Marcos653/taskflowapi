@@ -1,18 +1,18 @@
 package taskflowapi.infra.repository;
 
+import taskflowapi.application.dto.response.DepartamentoResponse;
+import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
 import com.querydsl.core.types.Expression;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPQLTemplates;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
-import taskflowapi.application.dto.response.DepartamentoResponse;
-import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
+import java.util.List;
+import java.util.HashSet;
+import jakarta.persistence.EntityManager;
 
 import static com.querydsl.core.group.GroupBy.groupBy;
 import static taskflowapi.domain.model.QPessoa.pessoa;

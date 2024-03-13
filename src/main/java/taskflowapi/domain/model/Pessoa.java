@@ -1,11 +1,11 @@
 package taskflowapi.domain.model;
 
 import taskflowapi.domain.enums.EDepartamento;
-import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.HashSet;
+import jakarta.persistence.*;
 
 @Entity
 @Getter

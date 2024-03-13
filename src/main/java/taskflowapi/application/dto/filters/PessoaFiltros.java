@@ -1,11 +1,11 @@
 package taskflowapi.application.dto.filters;
 
-import com.querydsl.core.BooleanBuilder;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import taskflowapi.infra.repository.predicates.PessoaPredicate;
+import com.querydsl.core.BooleanBuilder;
 
 import java.time.LocalDateTime;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 
 public record PessoaFiltros(
         @NotEmpty String nome,

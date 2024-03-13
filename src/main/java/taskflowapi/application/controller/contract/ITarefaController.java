@@ -1,14 +1,14 @@
 package taskflowapi.application.controller.contract;
 
+import taskflowapi.application.dto.request.TarefaRequest;
+import taskflowapi.application.dto.response.TarefaResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
-import taskflowapi.application.dto.request.TarefaRequest;
-import taskflowapi.application.dto.response.TarefaResponse;
 
 import java.util.List;
+import jakarta.validation.Valid;
 
 public interface ITarefaController {
 

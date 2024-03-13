@@ -1,20 +1,22 @@
 package taskflowapi.infra.repository;
 
+import taskflowapi.domain.model.Tarefa;
+import taskflowapi.domain.enums.EDepartamento;
+import taskflowapi.application.dto.response.TarefaResponse;
 import com.querydsl.core.types.Expression;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
-import taskflowapi.application.dto.response.TarefaResponse;
-import taskflowapi.domain.enums.EDepartamento;
-import taskflowapi.domain.model.Tarefa;
 
 import java.util.List;
+import jakarta.persistence.EntityManager;
 
 import static taskflowapi.domain.model.QTarefa.tarefa;
 
 @RequiredArgsConstructor
 public class TarefaJpaRepositoryImpl implements TarefaJpaRepositoryCustom {
+
+    private static final int LIMITE_TAREFAS_PENDENTES = 3;
 
     private final EntityManager entityManager;
 
@@ -35,7 +37,7 @@ public class TarefaJpaRepositoryImpl implements TarefaJpaRepositoryCustom {
                 .from(tarefa)
                 .where(tarefa.pessoa.isNull()
                         .and(tarefa.finalizado.isFalse()))
-                .limit(3)
+                .limit(LIMITE_TAREFAS_PENDENTES)
                 .orderBy(tarefa.prazo.asc())
                 .fetch();
     }

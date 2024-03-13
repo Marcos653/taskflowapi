@@ -22,7 +22,7 @@ public class TarefaRepositoryAdapter implements ITarefaRepository {
     }
 
     @Override
-    public Optional<Tarefa> getTopByDepartamento(EDepartamento departamento) {
+    public Tarefa getTopByDepartamento(EDepartamento departamento) {
         return tarefaJpaRepository.getTopByDepartamento(departamento);
     }
 

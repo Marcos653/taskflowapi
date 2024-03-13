@@ -14,12 +14,11 @@ import taskflowapi.domain.service.contract.ITarefaService;
 
 import java.util.List;
 
+import static taskflowapi.domain.utils.MensagemConstantes.TAREFA_ID_NOT_FOUND;
+
 @Service
 @RequiredArgsConstructor
 public class TarefaServiceImpl implements ITarefaService {
-
-    private static final String TAREFA_ID_NOT_FOUND = "Tarefa não encontrada com ID: ";
-    private static final String TAREFA_DEPARTAMENTO_NOT_FOUND = "Tarefa não encontrada com departamento: ";
 
     private final ITarefaRepository repository;
     private final IPessoaService pessoaService;
@@ -34,7 +33,7 @@ public class TarefaServiceImpl implements ITarefaService {
     @Override
     public TarefaResponse alocar(Long pessoaId) {
         var pessoa = pessoaService.getPessoaById(pessoaId);
-        var tarefa = getTarefaByDepartamentoOrderByPrazo(pessoa.getDepartamento());
+        var tarefa = getTopByDepartamento(pessoa.getDepartamento());
         tarefa.setPessoa(pessoa);
 
         return mapper.convertToTarefaResponse(repository.save(tarefa));
@@ -58,8 +57,7 @@ public class TarefaServiceImpl implements ITarefaService {
               .orElseThrow(() -> new EntityNotFoundException(TAREFA_ID_NOT_FOUND + id));
     }
 
-    private Tarefa getTarefaByDepartamentoOrderByPrazo(EDepartamento departamento) {
-        return repository.getTopByDepartamento(departamento)
-             .orElseThrow(() -> new EntityNotFoundException(TAREFA_DEPARTAMENTO_NOT_FOUND + departamento));
+    private Tarefa getTopByDepartamento(EDepartamento departamento) {
+        return repository.getTopByDepartamento(departamento);
     }
 }

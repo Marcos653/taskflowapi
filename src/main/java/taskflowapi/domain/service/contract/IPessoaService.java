@@ -7,11 +7,12 @@ import taskflowapi.application.dto.response.PessoaResponse;
 import taskflowapi.application.dto.response.PessoaTotalHorasTrabalhadas;
 import taskflowapi.domain.model.Pessoa;
 
+import java.util.List;
 import java.util.Set;
 
 public interface IPessoaService {
 
-    Set<PessoaTotalHorasTrabalhadas> getAllPessoa();
+    List<PessoaTotalHorasTrabalhadas> getAllPessoa();
 
     Set<PessoaMediaHorasTrabalhadas> getPessoasByNomeEPeriodo(PessoaFiltros filtros);
 

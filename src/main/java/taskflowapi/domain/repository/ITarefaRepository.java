@@ -11,7 +11,7 @@ public interface ITarefaRepository {
 
     Optional<Tarefa> findById(Long id);
 
-    Optional<Tarefa> getTopByDepartamento(EDepartamento departamento);
+    Tarefa getTopByDepartamento(EDepartamento departamento);
 
     List<TarefaResponse> getTarefasAntigasPendentes();
 

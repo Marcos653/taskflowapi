@@ -14,29 +14,31 @@ import taskflowapi.domain.model.Tarefa;
 import taskflowapi.domain.repository.IPessoaRepository;
 import taskflowapi.domain.service.contract.IPessoaService;
 
+import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
+
+import static java.util.Comparator.comparing;
+import static taskflowapi.domain.utils.MensagemConstantes.PESSOA_ID_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
 public class PessoaServiceImpl implements IPessoaService {
 
-    private static final String PESSOA_ID_NOT_FOUND = "Pessoa não encontrada com ID: ";
-
     private final IPessoaRepository repository;
     private final PessoaMapper mapper;
 
     @Override
-    public Set<PessoaTotalHorasTrabalhadas> getAllPessoa() {
+    public List<PessoaTotalHorasTrabalhadas> getAllPessoa() {
         return repository.findAll()
                 .stream()
                 .map(this::setTotalHoras)
-                .collect(Collectors.toSet());
+                .sorted(comparing(PessoaTotalHorasTrabalhadas::nome))
+                .toList();
     }
 
     @Override
     public Set<PessoaMediaHorasTrabalhadas> getPessoasByNomeEPeriodo(PessoaFiltros filtros) {
-        return repository.getPessoasByNomeEPeriodo(filtros.criarPredicado());
+        return repository.getPessoasByNomeEPeriodo(filtros.createPredicate());
     }
 
     @Override

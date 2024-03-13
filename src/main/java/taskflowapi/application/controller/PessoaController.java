@@ -11,6 +11,7 @@ import taskflowapi.application.dto.response.PessoaResponse;
 import taskflowapi.application.dto.response.PessoaTotalHorasTrabalhadas;
 import taskflowapi.domain.service.contract.IPessoaService;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -21,7 +22,7 @@ public class PessoaController implements IPessoaController {
     private final IPessoaService service;
 
     @Override
-    public Set<PessoaTotalHorasTrabalhadas> getAllPessoa() {
+    public List<PessoaTotalHorasTrabalhadas> getAllPessoa() {
         return service.getAllPessoa();
     }
 

@@ -10,7 +10,7 @@ public record TarefaResponse(
         String descricao,
         LocalDateTime prazo,
         EDepartamento departamento,
-        Double duracao,
+        double duracao,
         Long pessoaId,
         Boolean finalizado) {
 }

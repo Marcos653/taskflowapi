@@ -8,12 +8,13 @@ import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
 import taskflowapi.application.dto.response.PessoaResponse;
 import taskflowapi.application.dto.response.PessoaTotalHorasTrabalhadas;
 
+import java.util.List;
 import java.util.Set;
 
 public interface IPessoaController {
 
     @GetMapping
-    Set<PessoaTotalHorasTrabalhadas> getAllPessoa();
+    List<PessoaTotalHorasTrabalhadas> getAllPessoa();
 
     @GetMapping("gastos")
     Set<PessoaMediaHorasTrabalhadas> getPessoasByNomeEPeriodo(@Valid PessoaFiltros filtros);

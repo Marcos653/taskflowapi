@@ -12,7 +12,7 @@ public record PessoaFiltros(
         @NotNull LocalDateTime inicio,
         @NotNull LocalDateTime fim) {
 
-    public BooleanBuilder criarPredicado() {
+    public BooleanBuilder createPredicate() {
         return new PessoaPredicate()
                 .comNome(nome)
                 .noPeriodo(inicio, fim)

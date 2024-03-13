@@ -10,7 +10,6 @@ import taskflowapi.domain.enums.EDepartamento;
 import taskflowapi.domain.model.Tarefa;
 
 import java.util.List;
-import java.util.Optional;
 
 import static taskflowapi.domain.model.QTarefa.tarefa;
 
@@ -20,13 +19,13 @@ public class TarefaJpaRepositoryImpl implements TarefaJpaRepositoryCustom {
     private final EntityManager entityManager;
 
     @Override
-    public Optional<Tarefa> getTopByDepartamento(EDepartamento departamento) {
-        return Optional.ofNullable(new JPAQueryFactory(entityManager)
+    public Tarefa getTopByDepartamento(EDepartamento departamento) {
+        return new JPAQueryFactory(entityManager)
                 .selectFrom(tarefa)
                 .where(tarefa.departamento.eq(departamento)
                         .and(tarefa.pessoa.isNull()))
                 .orderBy(tarefa.prazo.asc())
-                .fetchFirst());
+                .fetchFirst();
     }
 
     @Override

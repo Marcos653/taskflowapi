@@ -9,7 +9,6 @@ import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import taskflowapi.application.dto.response.DepartamentoResponse;
 import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
-import taskflowapi.domain.enums.EDepartamento;
 
 import java.util.HashSet;
 import java.util.List;
@@ -50,9 +49,7 @@ public class PessoaJpaRepositoryImpl implements PessoaJpaRepositoryCustom {
                 pessoa.id,
                 pessoa.nome,
                 pessoa.departamento,
-                tarefa.duracao
-                        .avg()
-                        .coalesce(0.0));
+                tarefa.duracao.avg());
     }
 
     private Expression<DepartamentoResponse> createDepartamentoResponse() {

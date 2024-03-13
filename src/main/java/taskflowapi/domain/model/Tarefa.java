@@ -11,7 +11,12 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tarefa")
+@EqualsAndHashCode(of = "id")
+@Table(name = "tarefa", indexes = {
+        @Index(name = "idx_tarefa_pessoa_alocada", columnList = "pessoa_alocada"),
+        @Index(name = "idx_tarefa_finalizado", columnList = "finalizado"),
+        @Index(name = "idx_tarefa_prazo", columnList = "prazo")
+})
 public class Tarefa {
 
     @Id

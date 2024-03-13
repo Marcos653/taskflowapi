@@ -4,6 +4,7 @@ import taskflowapi.domain.enums.EDepartamento;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -11,7 +12,11 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "pessoa")
+@EqualsAndHashCode(of = "id")
+@Table(name = "pessoa", indexes = {
+        @Index(name = "idx_pessoa_nome", columnList = "nome"),
+        @Index(name = "idx_pessoa_id", columnList = "id")
+})
 public class Pessoa {
 
     @Id
@@ -26,6 +31,6 @@ public class Pessoa {
     @Column(name = "departamento", nullable = false)
     private EDepartamento departamento;
 
-    @OneToMany(mappedBy = "pessoa")
-    private Set<Tarefa> tarefas;
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Tarefa> tarefas = new HashSet<>();
 }

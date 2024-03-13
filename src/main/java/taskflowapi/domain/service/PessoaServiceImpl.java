@@ -63,6 +63,7 @@ public class PessoaServiceImpl implements IPessoaService {
 
     @Override
     public void deleteById(Long id) {
+        getPessoaById(id);
         repository.deleteById(id);
     }
 

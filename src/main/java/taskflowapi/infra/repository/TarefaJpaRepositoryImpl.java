@@ -16,9 +16,8 @@ import static taskflowapi.domain.model.QTarefa.tarefa;
 @RequiredArgsConstructor
 public class TarefaJpaRepositoryImpl implements TarefaJpaRepositoryCustom {
 
-    private static final int LIMITE_TAREFAS_PENDENTES = 3;
-
     private final EntityManager entityManager;
+    private final int limiteTarefasPendentes = 3;
 
     @Override
     public Tarefa getTopByDepartamento(EDepartamento departamento) {
@@ -37,7 +36,7 @@ public class TarefaJpaRepositoryImpl implements TarefaJpaRepositoryCustom {
                 .from(tarefa)
                 .where(tarefa.pessoa.isNull()
                         .and(tarefa.finalizado.isFalse()))
-                .limit(LIMITE_TAREFAS_PENDENTES)
+                .limit(limiteTarefasPendentes)
                 .orderBy(tarefa.prazo.asc())
                 .fetch();
     }

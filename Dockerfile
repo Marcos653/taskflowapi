@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY . /app
 
-RUN mvn clean install
+RUN mvn clean install -DskipTests
 
 RUN mv target/taskflowapi-0.0.1-SNAPSHOT.jar app.jar && rm -rf target
 

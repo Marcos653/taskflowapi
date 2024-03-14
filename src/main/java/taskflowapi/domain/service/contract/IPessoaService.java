@@ -12,7 +12,7 @@ import java.util.Set;
 
 public interface IPessoaService {
 
-    List<PessoaTotalHorasTrabalhadas> getAllPessoa();
+    List<PessoaTotalHorasTrabalhadas> getAllPessoas();
 
     Set<PessoaMediaHorasTrabalhadas> getPessoasByNomeEPeriodo(PessoaFiltros filtros);
 

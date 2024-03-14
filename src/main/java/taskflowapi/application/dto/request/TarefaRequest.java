@@ -11,5 +11,5 @@ public record TarefaRequest(
         @NotBlank String descricao,
         @NotNull LocalDateTime prazo,
         @NotNull EDepartamento departamento,
-        @NotNull Double duracao) {
+        @NotNull double duracao) {
 }

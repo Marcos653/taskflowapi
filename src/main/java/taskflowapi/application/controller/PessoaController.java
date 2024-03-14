@@ -1,8 +1,5 @@
 package taskflowapi.application.controller;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import taskflowapi.application.controller.contract.IPessoaController;
 import taskflowapi.application.dto.filters.PessoaFiltros;
 import taskflowapi.application.dto.request.PessoaRequest;
@@ -10,9 +7,12 @@ import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
 import taskflowapi.application.dto.response.PessoaResponse;
 import taskflowapi.application.dto.response.PessoaTotalHorasTrabalhadas;
 import taskflowapi.domain.service.contract.IPessoaService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
 
-import java.util.List;
 import java.util.Set;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,8 +22,8 @@ public class PessoaController implements IPessoaController {
     private final IPessoaService service;
 
     @Override
-    public List<PessoaTotalHorasTrabalhadas> getAllPessoa() {
-        return service.getAllPessoa();
+    public List<PessoaTotalHorasTrabalhadas> getAllPessoas() {
+        return service.getAllPessoas();
     }
 
     @Override

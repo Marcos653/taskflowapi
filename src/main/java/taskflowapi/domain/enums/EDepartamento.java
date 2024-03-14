@@ -1,9 +1,5 @@
 package taskflowapi.domain.enums;
 
-import lombok.*;
-
-@Getter
-@AllArgsConstructor
 public enum EDepartamento {
 
     DESENVOLVIMENTO,

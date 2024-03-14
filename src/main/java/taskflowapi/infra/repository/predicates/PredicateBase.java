@@ -22,8 +22,4 @@ public class PredicateBase {
     protected boolean isNotEmpty(Object object) {
         return !isEmpty(object);
     }
-
-    public void add(BooleanBuilder booleanBuilder) {
-        builder.and(booleanBuilder);
-    }
 }

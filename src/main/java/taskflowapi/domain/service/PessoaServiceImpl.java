@@ -28,7 +28,7 @@ public class PessoaServiceImpl implements IPessoaService {
     private final PessoaMapper mapper;
 
     @Override
-    public List<PessoaTotalHorasTrabalhadas> getAllPessoa() {
+    public List<PessoaTotalHorasTrabalhadas> getAllPessoas() {
         return repository.findAll()
                 .stream()
                 .map(this::setTotalHoras)

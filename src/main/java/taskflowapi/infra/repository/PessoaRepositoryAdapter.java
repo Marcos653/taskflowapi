@@ -1,17 +1,17 @@
 package taskflowapi.infra.repository;
 
-import com.querydsl.core.types.Predicate;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
+import taskflowapi.domain.model.Pessoa;
+import taskflowapi.domain.repository.IPessoaRepository;
+import taskflowapi.domain.repository.IDepartamentoRepository;
 import taskflowapi.application.dto.response.DepartamentoResponse;
 import taskflowapi.application.dto.response.PessoaMediaHorasTrabalhadas;
-import taskflowapi.domain.model.Pessoa;
-import taskflowapi.domain.repository.IDepartamentoRepository;
-import taskflowapi.domain.repository.IPessoaRepository;
+import lombok.RequiredArgsConstructor;
+import com.querydsl.core.types.Predicate;
+import org.springframework.stereotype.Repository;
 
+import java.util.Set;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Repository
 @RequiredArgsConstructor

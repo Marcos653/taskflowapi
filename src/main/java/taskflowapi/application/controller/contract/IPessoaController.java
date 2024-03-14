@@ -22,11 +22,16 @@ public interface IPessoaController {
 
     @GetMapping
     @Operation(summary = "Obter todas as pessoas e suas total de horas trabalhadas")
-    List<PessoaTotalHorasTrabalhadas> getAllPessoa();
+    @ApiResponse(responseCode = "200", description = "Pessoas listada com sucesso")
+    List<PessoaTotalHorasTrabalhadas> getAllPessoas();
 
     @GetMapping("gastos")
     @Operation(summary = "Buscar pessoas por nome e período")
     @PessoaFiltrosParameters
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Pessoas ou pessoa obetida com sucesso"),
+            @ApiResponse(responseCode = "400", description = "Dados inválidos fornecidos ", content = @Content),
+    })
     Set<PessoaMediaHorasTrabalhadas> getPessoasByNomeEPeriodo(@Parameter(hidden = true) @Valid PessoaFiltros filtros);
 
     @PostMapping

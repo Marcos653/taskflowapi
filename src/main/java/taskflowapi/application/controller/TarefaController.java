@@ -1,12 +1,12 @@
 package taskflowapi.application.controller;
 
-import lombok.RequiredArgsConstructor;
+import taskflowapi.application.dto.request.TarefaRequest;
+import taskflowapi.domain.service.contract.ITarefaService;
+import taskflowapi.application.dto.response.TarefaResponse;
+import taskflowapi.application.controller.contract.ITarefaController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import taskflowapi.application.controller.contract.ITarefaController;
-import taskflowapi.application.dto.request.TarefaRequest;
-import taskflowapi.application.dto.response.TarefaResponse;
-import taskflowapi.domain.service.contract.ITarefaService;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 

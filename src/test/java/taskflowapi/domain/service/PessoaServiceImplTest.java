@@ -149,8 +149,6 @@ class PessoaServiceImplTest {
                 .thenReturn(Optional.of(pessoa));
         when(pessoaRepository.save(pessoa))
                 .thenReturn(pessoa);
-        when(mapper.convertToPessoaWithId(pessoaId, pessoaRequest))
-                .thenReturn(pessoa);
         when(mapper.convertToPessoaResponse(pessoa))
                 .thenReturn(pessoaResponse);
 
@@ -161,7 +159,6 @@ class PessoaServiceImplTest {
                 .isNotNull();
 
         verify(pessoaRepository).findById(pessoaId);
-        verify(mapper).convertToPessoaWithId(pessoaId, pessoaRequest);
         verify(mapper).convertToPessoaResponse(pessoa);
         verify(pessoaRepository).save(pessoa);
     }

@@ -71,33 +71,6 @@ class PessoaMapperTest {
     }
 
     @Test
-    void convertToPessoaWithId_deveConverterParaPessoa_quandoSolicitado() {
-        assertThat(mapper.convertToPessoaWithId(pessoaId, pessoaRequest))
-                .extracting("id", "nome", "departamento")
-                .containsExactly(pessoa.getId(), pessoa.getNome(), pessoa.getDepartamento());
-    }
-
-    @Test
-    void convertToPessoaWithId_naoDeveConverterParaPessoa_quandoIdEPessoaRequestForemNulos() {
-        assertThat(mapper.convertToPessoaWithId(null, null))
-                .isNull();
-    }
-
-    @Test
-    void convertToPessoaWithId_deveConverterParaPessoaComApenasId_quandoPessoaRequestForNulo() {
-        assertThat(mapper.convertToPessoaWithId(pessoaId, null))
-                .extracting("id", "nome", "departamento")
-                .containsExactly(pessoaId, null, null);
-    }
-
-    @Test
-    void convertToPessoaWithId_deveConverterParaPessoaSemId_quandoIdForNulo() {
-        assertThat(mapper.convertToPessoaWithId(null, pessoaRequest))
-                .extracting("id", "nome", "departamento")
-                .containsExactly(null, pessoa.getNome(), pessoa.getDepartamento());
-    }
-
-    @Test
     void tarefasToTarefasResponse_deveConverterParaSetTarefaResponse_quandoSolicitado() {
         tarefaMapper = Mockito.mock(TarefaMapper.class);
         ReflectionTestUtils.setField(mapper, "tarefaMapper", tarefaMapper);

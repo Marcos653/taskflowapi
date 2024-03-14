@@ -23,10 +23,5 @@ public interface PessoaMapper {
     @Mapping(target = "departamento", source = "pessoaRequest.departamento")
     Pessoa convertToPessoa(PessoaRequest pessoaRequest);
 
-    @Mapping(target = "id", source = "id")
-    @Mapping(target = "nome", source = "pessoaRequest.nome")
-    @Mapping(target = "departamento", source = "pessoaRequest.departamento")
-    Pessoa convertToPessoaWithId(Long id, PessoaRequest pessoaRequest);
-
     Set<TarefaResponse> tarefasToTarefasResponse(Set<Tarefa> tarefas);
 }

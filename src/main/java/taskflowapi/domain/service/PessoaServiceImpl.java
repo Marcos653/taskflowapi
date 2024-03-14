@@ -55,10 +55,13 @@ public class PessoaServiceImpl implements IPessoaService {
 
     @Override
     public PessoaResponse update(Long id, PessoaRequest pessoaRequest) {
-        getPessoaById(id);
+        var pessoa = getPessoaById(id);
+
+        pessoa.setNome(pessoaRequest.nome());
+        pessoa.setDepartamento(pessoaRequest.departamento());
 
         return mapper.convertToPessoaResponse(repository
-                .save(mapper.convertToPessoaWithId(id, pessoaRequest)));
+                .save(pessoa));
     }
 
     @Override

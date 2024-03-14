@@ -60,7 +60,8 @@ Os testes unitários foram implementados utilizando o JUnit e podem ser executad
 mvn test
 ```
 
+Após a execução dos testes, o JaCoCo gera o relatório de cobertura na pasta target/site/jacoco do projeto. Você pode acessar o relatório abrindo o arquivo index.html localizado nessa pasta com qualquer navegador web.
+
 ## Cobertura de Testes
 
 A cobertura de testes é monitorada pelo JaCoCo, fornecendo um relatório detalhado sobre a cobertura de código da aplicação.
-
